@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, argv) => {
   console.log('mode', argv.mode); // outputs development
@@ -18,6 +19,10 @@ module.exports = (env, argv) => {
       new webpack.DefinePlugin({
         PRODUCTION: argv.mode === 'production',
       }),
+      new MiniCssExtractPlugin({
+        filename: 'styles.[hash].css',
+        ignoreOrder: false,
+      }),
     ],
     resolve: {
       extensions: ['.ts', '.js'],
@@ -33,7 +38,8 @@ module.exports = (env, argv) => {
           test: /\.s[ac]ss$/i,
           use: [
             // Creates `style` nodes from JS strings
-            'style-loader',
+            // fallback to style-loader in development
+            argv.mode !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
             // Translates CSS into CommonJS
             {
               loader: 'css-loader',
