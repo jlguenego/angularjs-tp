@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, argv) => {
   console.log('mode', argv.mode); // outputs development
@@ -23,6 +24,7 @@ module.exports = (env, argv) => {
         filename: 'styles.[hash].css',
         ignoreOrder: false,
       }),
+      new CopyWebpackPlugin([{ from: './src/assets', to: 'assets' }]),
     ],
     resolve: {
       extensions: ['.ts', '.js'],
