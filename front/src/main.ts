@@ -1,4 +1,4 @@
-import { module } from 'angular';
+import './app/app.component';
 
 declare global {
   const PRODUCTION: boolean;
@@ -8,14 +8,4 @@ if (!PRODUCTION) {
   console.log('this is not production...');
 }
 
-const app = module('app', []);
-
-app.component('appRoot', {
-  template: '<h1>Hello {{$ctrl.title}}!!!</h1>',
-  controller: class AppRootController {
-    title = 'World';
-    constructor() {
-      console.log('Instantiating ctrl', this);
-    }
-  },
-});
+console.log('started');
