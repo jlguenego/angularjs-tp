@@ -11,6 +11,7 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.[hash].js',
     },
+    devtool: argv.mode === 'development' ? 'inline-source-map' : 'none',
     plugins: [
       new HtmlWebpackPlugin({ template: './src/index.html' }),
       new CleanWebpackPlugin(),
