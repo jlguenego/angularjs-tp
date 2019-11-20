@@ -5,7 +5,7 @@ module.exports = {
   entry: ['./src/main.ts'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.[hash].js',
   },
   plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
   module: {
