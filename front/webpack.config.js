@@ -62,5 +62,12 @@ module.exports = (env, argv) => {
         },
       ],
     },
+    devServer: {
+      stats: {
+        children: false, // Hide children information
+        maxModules: 0, // Set the maximum number of modules to be shown
+      },
+      port: 3111,
+    },
   };
 };
