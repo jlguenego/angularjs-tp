@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -10,7 +11,16 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.[hash].js',
     },
-    plugins: [new HtmlWebpackPlugin({ template: './src/index.html' }), new CleanWebpackPlugin()],
+    plugins: [
+      new HtmlWebpackPlugin({ template: './src/index.html' }),
+      new CleanWebpackPlugin(),
+      new webpack.DefinePlugin({
+        PRODUCTION: argv.mode === 'production',
+      }),
+    ],
+    resolve: {
+      extensions: ['.ts', '.js'],
+    },
     module: {
       rules: [
         {
