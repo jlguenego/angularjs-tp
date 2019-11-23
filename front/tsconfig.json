@@ -3,9 +3,13 @@
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "esnext",
+    "moduleResolution": "node",
     "target": "es5",
     "allowJs": true,
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
   }
 }
