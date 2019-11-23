@@ -37,6 +37,14 @@ module.exports = (env, argv) => {
           exclude: /node_modules/,
         },
         {
+          test: /\.html$/,
+          loader: 'html-loader',
+          options: {
+            attrs: false,
+            minimize: true,
+          },
+        },
+        {
           test: /\.s[ac]ss$/i,
           use: [
             // Creates `style` nodes from JS strings
