@@ -1,10 +1,13 @@
 layout-body {
   flex-grow: 1;
   display: flex;
-  main {
-    button {
-      width: 18em;
-      margin: 1em 0;
+  ui-view {
+    display: flex;
+    width: 100%;
+    // routes
+    >* {
+      display: flex;
+      width: 100%;
     }
   }
 }
