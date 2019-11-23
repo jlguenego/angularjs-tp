@@ -16,3 +16,18 @@ a {
     text-decoration: underline;
   }
 }
+
+main {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: 0.5em;
+}
+
+button {
+  border: 0.1em solid #eee;
+  background: #eee;
+  padding: 0.5em 1em;
+}

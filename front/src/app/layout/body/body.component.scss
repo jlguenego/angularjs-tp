@@ -1,6 +1,10 @@
 layout-body {
   flex-grow: 1;
+  display: flex;
   main {
-    display: flex;
+    button {
+      width: 19em;
+      margin: 1em 0;
+    }
   }
 }
