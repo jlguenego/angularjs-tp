@@ -1,5 +1,4 @@
 import { module } from 'angular';
+import './layout/layout.module';
 
-console.log('creating module');
-export const app = module('app', []);
-
+module('app', ['layout']).component('appRoot', require('./app.component'));

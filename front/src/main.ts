@@ -1,5 +1,5 @@
 import * as angular from 'angular';
-import './app/app.component';
+import './app/app.module';
 
 declare global {
   const PRODUCTION: boolean;

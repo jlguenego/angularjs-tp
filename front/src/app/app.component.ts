@@ -1,8 +1,6 @@
-import { app } from './app.module';
-
 require('./app.component.scss');
 
-app.component('appRoot', {
+module.exports = {
   template: require('./app.component.html'),
   controller: class AppRootController {
     title = 'World';
@@ -10,4 +8,4 @@ app.component('appRoot', {
       console.log('Instantiating ctrl', this);
     }
   },
-});
+};
