@@ -1,7 +1,7 @@
-import { module } from 'angular';
 import '@uirouter/angularjs';
+import { module } from 'angular';
 
-export const layout = module('layout', ['ui.router'])
+module('layout', ['ui.router'])
   .component('layoutLayout', require('./layout/layout.component'))
   .component('layoutHeader', require('./header/header.component'))
   .component('layoutBody', require('./body/body.component'))
