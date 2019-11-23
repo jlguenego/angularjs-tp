@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 import './app/app.component';
 
 declare global {
@@ -9,3 +10,7 @@ if (!PRODUCTION) {
 }
 
 console.log('started');
+
+angular.bootstrap(document, ['app'], {
+  strictDi: true,
+});
