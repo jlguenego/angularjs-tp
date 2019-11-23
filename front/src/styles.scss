@@ -1,9 +1,14 @@
-$body-color: blue;
+@import "../node_modules/normalize.css/normalize.css";
 
 body {
-  color: $body-color;
+  font-family: sans-serif;
 }
 
-img {
-  width: 2em;
+a {
+  text-decoration: inherit;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

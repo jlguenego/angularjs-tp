@@ -1,5 +1,24 @@
 layout-header {
-  p { 
-    color: blue;
+  header {
+    background: #eee;
+    padding: 0.5em;
+    height: 3em;
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+  }
+
+  img {
+    width: 2em;
+    padding-right: 0.5em;
+  }
+
+  span {
+    font-size: 1.5em;
+    font-weight: bold;
   }
 }
