@@ -1,5 +1,6 @@
 layout-body {
-  p {
-      color: blue;
+  flex-grow: 1;
+  main {
+    display: flex;
   }
 }
