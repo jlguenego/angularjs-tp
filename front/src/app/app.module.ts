@@ -21,7 +21,7 @@ module('app', ['layout', 'ui.router', 'oc.lazyLoad'])
       $stateProvider.state({ name: 'legal', url: '/legal', component: 'appLegal' });
       $stateProvider.state({
         name: 'add-reference-form.**',
-        url: '/add-reference-form',
+        url: '/add-reference',
         lazyLoad: async (transition, state) => {
           await import(/* webpackChunkName: "add-reference" */ './add-reference/add-reference.module');
           transition
