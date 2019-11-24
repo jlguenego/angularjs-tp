@@ -1,8 +1,9 @@
 import '@uirouter/angularjs';
 import { module } from 'angular';
+import './add-reference/add-reference.module';
 import './layout/layout.module';
 
-module('app', ['layout', 'ui.router'])
+module('app', ['layout', 'ui.router', 'app.addReference'])
   .component('appRoot', require('./app.component'))
   .component('appHome', require('./routes/home/home.component'))
   .component('appLegal', require('./routes/legal/legal.component'))
