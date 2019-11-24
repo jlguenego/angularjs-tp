@@ -1,6 +1,6 @@
 import '@uirouter/angularjs';
 import { StateProvider, UrlRouterProvider } from '@uirouter/angularjs';
-import { module } from 'angular';
+import { ILocationProvider, module } from 'angular';
 import 'oclazyload';
 import './layout/layout.module';
 
@@ -8,6 +8,12 @@ module('app', ['layout', 'ui.router', 'oc.lazyLoad'])
   .component('appRoot', require('./app.component'))
   .component('appHome', require('./routes/home/home.component'))
   .component('appLegal', require('./routes/legal/legal.component'))
+  .config([
+    '$locationProvider',
+    ($locationProvider: ILocationProvider) => {
+      $locationProvider.html5Mode(true);
+    },
+  ])
   .config([
     '$stateProvider',
     ($stateProvider: StateProvider) => {
