@@ -36,7 +36,16 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.ts$/,
-          use: 'ts-loader',
+          use: [
+            {
+              loader: 'ng-annotate-loader',
+              options: {
+                ngAnnotate: 'ng-annotate-patched',
+                sourcemap: argv.mode === 'development',
+              },
+            },
+            'ts-loader',
+          ],
           exclude: /node_modules/,
         },
         {
@@ -51,15 +60,15 @@ module.exports = (env, argv) => {
           test: /\.(gif|png|jpe?g|svg)$/i,
           loader: 'file-loader',
           options: {
-            name: 'images/[name].[ext]'
-          }
+            name: 'images/[name].[ext]',
+          },
         },
         {
           test: /\.(eot|ttf|woff|woff2)$/,
           loader: 'file-loader',
           options: {
-            name: 'fonts/[name].[ext]'
-          }
+            name: 'fonts/[name].[ext]',
+          },
         },
         {
           test: /\.s[ac]ss$/i,
@@ -93,10 +102,10 @@ module.exports = (env, argv) => {
           commons: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
-            chunks: 'all'
-          }
-        }
-      }
+            chunks: 'all',
+          },
+        },
+      },
     },
     devServer: {
       stats: {
