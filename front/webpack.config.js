@@ -11,7 +11,7 @@ module.exports = (env, argv) => {
     entry: ['./src/main.ts', './src/styles.scss'],
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.[hash].js',
+      filename: 'bundle.[hash:8].js',
     },
     devtool: argv.mode === 'development' ? 'inline-source-map' : 'none',
     plugins: [
@@ -21,7 +21,7 @@ module.exports = (env, argv) => {
         PRODUCTION: argv.mode === 'production',
       }),
       new MiniCssExtractPlugin({
-        filename: 'styles.[hash].css',
+        filename: 'styles.[contenthash:8].css',
         ignoreOrder: false,
       }),
       new CopyWebpackPlugin([{ from: './src/assets', to: 'assets' }]),
@@ -83,6 +83,17 @@ module.exports = (env, argv) => {
           ],
         },
       ],
+    },
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          commons: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all'
+          }
+        }
+      }
     },
     devServer: {
       stats: {
