@@ -1,3 +1,4 @@
+require('./styles.scss');
 import * as angular from 'angular';
 import './app/app.module';
 

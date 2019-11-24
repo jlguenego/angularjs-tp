@@ -8,10 +8,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = (env, argv) => {
   console.log('mode', argv.mode); // outputs development
   return {
-    entry: ['./src/main.ts', './src/styles.scss'],
+    entry: {
+      main: './src/main',
+    },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.[hash:8].js',
+      filename: '[name].[hash:8].js',
     },
     devtool: argv.mode === 'development' ? 'inline-source-map' : 'none',
     plugins: [
@@ -21,7 +23,8 @@ module.exports = (env, argv) => {
         PRODUCTION: argv.mode === 'production',
       }),
       new MiniCssExtractPlugin({
-        filename: 'styles.[contenthash:8].css',
+        filename: '[name].[hash:8].css',
+        chunkFilename: '[name].[hash:8].css',
         ignoreOrder: false,
       }),
       new CopyWebpackPlugin([{ from: './src/assets', to: 'assets' }]),

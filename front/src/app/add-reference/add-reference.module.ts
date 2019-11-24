@@ -1,4 +1,3 @@
-import '@uirouter/angularjs';
 import { module } from 'angular';
 
 module('app.addReference', ['ui.router'])
