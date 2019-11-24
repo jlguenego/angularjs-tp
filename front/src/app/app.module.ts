@@ -17,7 +17,7 @@ module('app', ['layout', 'ui.router', 'oc.lazyLoad'])
         name: 'add-reference-form.**',
         url: '/add-reference-form',
         lazyLoad: async (transition, state) => {
-          await import('./add-reference/add-reference.module');
+          await import(/* webpackChunkName: "add-reference" */ './add-reference/add-reference.module');
           transition
             .injector()
             .get('$ocLazyLoad')
