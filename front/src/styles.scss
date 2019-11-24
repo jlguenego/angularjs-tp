@@ -27,6 +27,7 @@ main {
   justify-content: center;
   margin: auto;
   padding: 0.5em;
+  min-width: 20em;
 }
 
 button {
@@ -59,4 +60,28 @@ button {
       }
     }
   }
+}
+
+form {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  border: 0.1em solid #eee;
+  padding: 0.5em 1em;
+}
+
+label {
+  display: flex;
+  flex-flow: column;
+  padding-bottom: 0.5em;
+}
+
+.buttons {
+  padding-top: 1em;
+  display: flex;
+  justify-content: space-between;
 }
