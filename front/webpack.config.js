@@ -104,6 +104,7 @@ module.exports = (env, argv) => {
         maxModules: 0, // Set the maximum number of modules to be shown
       },
       port: 3111,
+      historyApiFallback: true,
     },
   };
 };
