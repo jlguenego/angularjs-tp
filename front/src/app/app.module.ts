@@ -1,5 +1,5 @@
 import '@uirouter/angularjs';
-import { StateProvider } from '@uirouter/angularjs';
+import { StateProvider, UrlRouterProvider } from '@uirouter/angularjs';
 import { module } from 'angular';
 import 'oclazyload';
 import './layout/layout.module';
@@ -25,5 +25,11 @@ module('app', ['layout', 'ui.router', 'oc.lazyLoad'])
           return {};
         },
       });
+    },
+  ])
+  .config([
+    '$urlRouterProvider',
+    ($urlRouterProvider: UrlRouterProvider) => {
+      $urlRouterProvider.otherwise('/');
     },
   ]);
