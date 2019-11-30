@@ -17,5 +17,10 @@
     "serve-index": "^1.9.1",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.2",
+    "@types/serve-index": "^1.7.30"
   }
 }
