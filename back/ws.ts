@@ -14,3 +14,7 @@ ws.post("/reference", (req, res) => {
   console.log(references.refs);
   res.status(201).json(result);
 });
+
+ws.get("/reference", (req, res) => {
+  res.json(references.refs);
+});
