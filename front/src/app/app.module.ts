@@ -5,6 +5,7 @@ import { ILocationProvider, module } from 'angular';
 
 import './layout/layout.module';
 import { ReferenceService } from './services/reference.service';
+import { HttpReferenceService } from './services/http-reference.service';
 
 module('app', ['layout', 'ui.router', 'oc.lazyLoad'])
   .component('appRoot', require('./app.component'))
@@ -35,4 +36,4 @@ module('app', ['layout', 'ui.router', 'oc.lazyLoad'])
     'ngInject';
     $urlRouterProvider.otherwise('/');
   })
-  .service('reference', ReferenceService);
+  .service('reference', HttpReferenceService);
