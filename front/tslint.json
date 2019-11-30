@@ -8,7 +8,8 @@
       "interface-name": false,
       "no-require-imports": false,
       "no-var-requires": false,
-      "object-literal-sort-keys": false
+      "object-literal-sort-keys": false,
+      "trailing-comma": false
     },
     "linterOptions": {
       "exclude": ["./node_modules/**/*", "./**/*.js"]

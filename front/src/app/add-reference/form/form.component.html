@@ -1,25 +1,26 @@
 <main>
     <h1>Saisie référence</h1>
-    <form>
+    <form name="f" ng-submit="$ctrl.submit()" novalidate>
         <label>
             <div>Libellé</div>
-            <input type="text">
+            <input type="text" ng-model="$ctrl.data.label" required>
         </label>
         <label>
             <div>Catégorie</div>
-            <input type="text">
+            <input type="text" ng-model="$ctrl.data.category" required>
         </label>
         <label>
             <div>Quantité</div>
-            <input type="text">
+            <input type="number" ng-model="$ctrl.data.quantity" required>
         </label>
         <label>
-            <div>Prix d'achat</div>
-            <input type="text">
+            <div>Prix d'achat (€)</div>
+            <input type="number" ng-model="$ctrl.data.price">
         </label>
         <div class="buttons">
-            <button>Annuler</button>
-            <button class="primary" ui-sref="add-reference-success">Ajouter</button>
+            <button ui-sref="home">Annuler</button>
+            <button class="primary" ui-sref="add-reference-success" ng-disabled="f.$invalid">Ajouter</button>
         </div>
     </form>
+    <!-- {{ $ctrl.data }} -->
 </main>
