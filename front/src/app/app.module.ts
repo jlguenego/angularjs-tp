@@ -31,6 +31,18 @@ module('app', ['layout', 'ui.router', 'oc.lazyLoad'])
         return {};
       },
     });
+    $stateProvider.state({
+      name: 'sell-reference-list.**',
+      url: '/sell-reference',
+      lazyLoad: async (transition, state) => {
+        await import(/* webpackChunkName: "sell-reference" */ './sell-reference/sell-reference.module');
+        transition
+          .injector()
+          .get('$ocLazyLoad')
+          .load({ name: 'app.sellReference' });
+        return {};
+      },
+    });
   })
   .config(($urlRouterProvider: UrlRouterProvider) => {
     'ngInject';
