@@ -88,3 +88,14 @@ label {
   display: flex;
   justify-content: space-between;
 }
+
+form {
+  input.ng-touched.ng-invalid {
+    border-color: black;
+  }
+  .error {
+    font-weight: bold;
+    height: 1em;
+    font-size: 0.8em;
+  }
+}

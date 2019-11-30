@@ -1,26 +1,41 @@
 <main>
-    <h1>Saisie référence</h1>
-    <form name="f" ng-submit="$ctrl.submit()" novalidate>
-        <label>
-            <div>Libellé</div>
-            <input type="text" ng-model="$ctrl.data.label" required>
-        </label>
-        <label>
-            <div>Catégorie</div>
-            <input type="text" ng-model="$ctrl.data.category" required>
-        </label>
-        <label>
-            <div>Quantité</div>
-            <input type="number" ng-model="$ctrl.data.quantity" required>
-        </label>
-        <label>
-            <div>Prix d'achat (€)</div>
-            <input type="number" ng-model="$ctrl.data.price">
-        </label>
-        <div class="buttons">
-            <button ui-sref="home">Annuler</button>
-            <button class="primary" ui-sref="add-reference-success" ng-disabled="f.$invalid">Ajouter</button>
+  <h1>Saisie référence</h1>
+  <form name="$ctrl.f" ng-submit="$ctrl.submit()" novalidate>
+    <label>
+      <div>Libellé</div>
+      <input type="text" name="label" ng-model="$ctrl.data.label" required />
+      <div class="error">
+        <div ng-show="$ctrl.f.label.$touched && $ctrl.f.label.$error.required">
+          Oups... Champ obligatoire.
         </div>
-    </form>
-    <!-- {{ $ctrl.data }} -->
+      </div>
+    </label>
+    <label>
+      <div>Catégorie</div>
+      <input type="text" name="category" ng-model="$ctrl.data.category" required />
+      <div class="error">
+        <div ng-show="$ctrl.f.category.$touched && $ctrl.f.category.$error.required">
+            Oups... Champ obligatoire.
+        </div>
+      </div>
+    </label>
+    <label>
+      <div>Quantité</div>
+      <input type="number" name="quantity" ng-model="$ctrl.data.quantity" required />
+      <div class="error">
+        <div ng-show="$ctrl.f.quantity.$touched && $ctrl.f.quantity.$error.required">
+            Oups... Champ obligatoire.
+        </div>
+      </div>
+    </label>
+    <label>
+      <div>Prix d'achat (€)</div>
+      <input type="number" ng-model="$ctrl.data.price" />
+    </label>
+    <div class="buttons">
+      <button ui-sref="home">Annuler</button>
+      <button class="primary" ui-sref="add-reference-success" ng-disabled="f.$invalid">Ajouter</button>
+    </div>
+  </form>
+  <!-- {{ $ctrl.data }} -->
 </main>

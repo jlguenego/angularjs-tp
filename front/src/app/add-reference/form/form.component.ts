@@ -13,12 +13,13 @@ module.exports = {
   template: require('./form.component.html'),
   controller: class FormController {
     data: AddReferenceFormData = {};
-    constructor($scope: IScope) {
+    f: FormController;
+    constructor($scope: any) {
       'ngInject';
       $scope.$watch(
         '$ctrl.data',
         () => {
-          console.log('$ctrl.data', this.data);
+          console.log('$ctrl.data', this.data, this.f);
         },
         true
       );
