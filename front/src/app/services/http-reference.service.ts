@@ -13,8 +13,8 @@ export class HttpReferenceService extends ReferenceService {
   add(ref: Reference) {
     super.add(ref);
     console.log('about to make an http post');
-    this.$http.post<void>('http://localhost:3000/ws/reference', ref).then(() => {
-      console.log('post successfull');
+    this.$http.post<Reference>('http://localhost:3000/ws/reference', ref).then(response => {
+      console.log('post successfull', response.data);
     }).catch((e: IHttpResponse<any>) => console.error('post error', e));
   }
 
