@@ -1,6 +1,7 @@
 {
   "watch": ["."],
   "ext": "ts,json",
-  "ignore": ["./**/*.spec.ts"],
-  "exec": "ts-node ./server.ts"
+  "ignore": ["data.json"],
+  "exec": "ts-node ./server.ts",
+  "verbose": true
 }
