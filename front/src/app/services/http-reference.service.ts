@@ -8,6 +8,11 @@ export class HttpReferenceService extends ReferenceService {
     'ngInject';
     super();
     console.log('http service');
+    this.$http.get<Reference[]>('http://localhost:3000/ws/reference').then(response => {
+      console.log('get successfull', response.data);
+      this.references = response.data;
+      this.setReferences();
+    }).catch((e: IHttpResponse<any>) => console.error('get error', e));
   }
 
   add(ref: Reference) {
