@@ -15,7 +15,7 @@ export class HttpReferenceService extends ReferenceService {
     console.log('about to make an http post');
     this.$http.post<void>('http://localhost:3000', ref).then(() => {
       console.log('post successfull');
-    }).catch((e: any) => console.error('post error', e));
+    }).catch((e: IHttpResponse<any>) => console.error('post error', e));
   }
 
 }
