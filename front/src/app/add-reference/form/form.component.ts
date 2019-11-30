@@ -8,7 +8,12 @@ require('./form.component.scss');
 module.exports = {
   template: require('./form.component.html'),
   controller: class FormController {
-    data: Reference = {};
+    data: Reference = {
+      label: 'Tournevis',
+      category: 'Outils',
+      quantity: 123,
+      price: 3.20
+    };
     f: FormController;
     constructor(private $scope: IScope, private reference: ReferenceService, private $state: StateService) {
       'ngInject';
