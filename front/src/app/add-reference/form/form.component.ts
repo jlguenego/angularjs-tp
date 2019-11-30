@@ -1,20 +1,16 @@
 import { IScope } from 'angular';
+import { ReferenceService } from '../../services/reference.service';
+import { Reference } from '../../interfaces/Reference';
+import { StateService } from '@uirouter/core';
 
 require('./form.component.scss');
-
-interface AddReferenceFormData {
-  label?: string;
-  category?: string;
-  quantity?: number;
-  price?: number;
-}
 
 module.exports = {
   template: require('./form.component.html'),
   controller: class FormController {
-    data: AddReferenceFormData = {};
+    data: Reference = {};
     f: FormController;
-    constructor($scope: any) {
+    constructor(private $scope: IScope, private reference: ReferenceService, private $state: StateService) {
       'ngInject';
       $scope.$watch(
         '$ctrl.data',
@@ -23,6 +19,11 @@ module.exports = {
         },
         true
       );
+    }
+
+    submit() {
+      this.reference.add(this.data);
+      this.$state.go('add-reference-success');
     }
   },
 };

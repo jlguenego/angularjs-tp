@@ -9,7 +9,8 @@
       "no-require-imports": false,
       "no-var-requires": false,
       "object-literal-sort-keys": false,
-      "trailing-comma": false
+      "trailing-comma": false,
+      "ordered-imports": false
     },
     "linterOptions": {
       "exclude": ["./node_modules/**/*", "./**/*.js"]

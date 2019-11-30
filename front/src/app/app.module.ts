@@ -1,8 +1,10 @@
 import '@uirouter/angularjs';
+import 'oclazyload';
 import { StateProvider, UrlRouterProvider } from '@uirouter/angularjs';
 import { ILocationProvider, module } from 'angular';
-import 'oclazyload';
+
 import './layout/layout.module';
+import { ReferenceService } from './services/reference.service';
 
 module('app', ['layout', 'ui.router', 'oc.lazyLoad'])
   .component('appRoot', require('./app.component'))
@@ -32,4 +34,5 @@ module('app', ['layout', 'ui.router', 'oc.lazyLoad'])
   .config(($urlRouterProvider: UrlRouterProvider) => {
     'ngInject';
     $urlRouterProvider.otherwise('/');
-  });
+  })
+  .service('reference', ReferenceService);
