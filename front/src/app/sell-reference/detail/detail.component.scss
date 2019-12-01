@@ -1,3 +1,19 @@
 app-sell-reference-detail {
-  color: blue;
+  main {
+    table {
+      border: 0.1em solid black;
+      tr {
+        &:nth-child(odd) {
+          background: #eee;
+        }
+        td {
+          padding: 0.5em;
+        }
+      }
+    }
+
+    button {
+      margin-top: 2em;
+    }
+  }
 }

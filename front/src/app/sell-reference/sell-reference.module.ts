@@ -15,7 +15,7 @@ module('app.sellReference', ['ui.router'])
     });
     $stateProvider.state({
       name: 'sell-reference-detail',
-      url: '/sell-reference/detail',
+      url: '/sell-reference/detail/:myIndex',
       component: 'appSellReferenceDetail',
     });
   });

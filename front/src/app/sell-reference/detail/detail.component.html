@@ -1,3 +1,23 @@
 <main>
-    <h1>Détail de référence</h1>
+  <h1>{{ $ctrl.r.label }}</h1>
+  <table>
+    <tr>
+      <td>Catégorie</td>
+      <td>{{ $ctrl.r.category }}</td>
+    </tr>
+    <tr>
+      <td>Quantité en stock</td>
+      <td>{{ $ctrl.r.quantity }}</td>
+    </tr>
+    <tr>
+      <td>Prix unitaire</td>
+      <td>{{ $ctrl.r.price }} €</td>
+    </tr>
+    <tr>
+      <td>Id</td>
+      <td>{{ $ctrl.r.id }}</td>
+    </tr>
+  </table>
+
+  <button ui-sref="sell-reference-list">Retour à la liste</button>
 </main>
