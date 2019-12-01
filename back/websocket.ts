@@ -1,11 +1,13 @@
 import * as WebSocket from "ws";
 import { Server } from "http";
 
-export const webSocket = {
-  attach(server: Server) {
-    const wss = new WebSocket.Server({ server });
+export class WebSocketServer {
+  static wss: WebSocket.Server;
 
-    wss.on("connection", function connection(ws) {
+  static attach(server: Server) {
+    WebSocketServer.wss = new WebSocket.Server({ server });
+
+    WebSocketServer.wss.on("connection", function connection(ws) {
       console.log("new websocket connection");
       ws.on("message", function incoming(message) {
         console.log("received: %s", message);
@@ -14,6 +16,15 @@ export const webSocket = {
       ws.send("something");
     });
 
-    console.log('websocket linked.');
+    console.log("websocket linked.");
   }
-};
+
+  static sendRefreshToClients() {
+    this.wss.clients.forEach(client => {
+      if (client.readyState !== WebSocket.OPEN) {
+        return;
+      }
+      client.send("Refresh!");
+    });
+  }
+}

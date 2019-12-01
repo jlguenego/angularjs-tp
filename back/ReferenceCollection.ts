@@ -1,6 +1,7 @@
 import { Reference } from "../front/src/app/interfaces/Reference";
 import * as fs from "fs";
 import * as path from "path";
+import { WebSocketServer } from './websocket';
 
 const filename = path.resolve(__dirname, 'data.json');
 
@@ -10,6 +11,7 @@ export class ReferenceCollection {
     const data: Reference = { ...ref, id: this.newId() };
     this.refs.push(data);
     fs.writeFileSync(filename, JSON.stringify(this.refs));
+    WebSocketServer.sendRefreshToClients();
     return data;
   }
 

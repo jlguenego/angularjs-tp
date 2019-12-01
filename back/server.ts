@@ -3,7 +3,7 @@ import * as serveIndex from "serve-index";
 import * as cors from "cors";
 import * as http from "http";
 import { ws } from "./ws";
-import { webSocket } from "./websocket";
+import { WebSocketServer } from "./websocket";
 
 const www = ".";
 const port = 3000;
@@ -17,5 +17,5 @@ app.use(express.static(www));
 app.use(serveIndex(www, { icons: true }));
 
 const server = http.createServer(app);
-webSocket.attach(server);
+WebSocketServer.attach(server);
 server.listen(port, () => console.log(`Server started on port ${port}`));

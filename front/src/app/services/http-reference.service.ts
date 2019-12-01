@@ -16,6 +16,11 @@ export class HttpReferenceService extends ReferenceService {
     this.ws.onopen = event => {
       this.ws.send('Hi!');
     };
+
+    this.ws.onmessage = evt => {
+      console.log('evt: ', evt);
+      this.refresh();
+    };
   }
 
   refresh() {
