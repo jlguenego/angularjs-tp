@@ -6,4 +6,40 @@ app-sell-reference-list {
       font-size: 1.8em;
     }
   }
+
+  .table {
+    display: block;
+    width: 100%;
+  }
+
+  .row {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto 5em;
+    grid-template-rows: 1em 1em 1em;
+    grid-template-areas:
+      'label label'
+      'category category'
+      'quantity price';
+
+    padding: 0.3em;
+    &:nth-child(odd) {
+      background: #eee;
+    }
+  }
+
+  .label {
+    grid-area: label;
+    font-weight: bold;
+  }
+  .category {
+    grid-area: category;
+  }
+  .quantity {
+    grid-area: quantity;
+  }
+  .price {
+    grid-area: price;
+    text-align: right;
+  }
 }

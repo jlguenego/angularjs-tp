@@ -2,7 +2,10 @@
   <h1>Liste des références</h1>
   <div class="table">
     <div class="row" ng-repeat="r in $ctrl.reference.references track by $index">
-      {{r.label}}
+      <div class="label">{{ r.label }}</div>
+      <div class="category">{{ r.category }}</div>
+      <div class="quantity"><span>En stock: </span>{{ r.quantity }}</div>
+      <div class="price">{{ r.price | currency }} €</div>
     </div>
   </div>
 </main>
